@@ -21,7 +21,7 @@ st.markdown(
     }
 
     .stButton>button {
-        background-color: #FF8C00 !important;
+        background-color: #FF5733 !important;
         color: white !important;
         border-radius: 5px;
         font-size: 16px;
@@ -36,13 +36,13 @@ st.markdown(
 )
 
 def main():
-    st.title("🔄 Unit Converter")
+    st.title("Unit Converter")
     
     st.sidebar.title("Navigation")
     page = st.sidebar.radio("Go to", ["Length Converter", "Time Converter", "Mass Converter"])
 
     if page == "Length Converter":
-        st.header("📏 Length Converter")
+        st.header("Length Converter")
         length_converter = LengthConverter()
         length_units = ["Meters", "Kilometers", "Miles", "Feet"]
         
@@ -59,7 +59,7 @@ def main():
             st.success(f"{length_value} {length_from} = {result} {length_to}")
 
     elif page == "Time Converter":
-        st.header("⏰ Time Converter")
+        st.header("Time Converter")
         time_converter = TimeConverter()
         time_units = ["Seconds", "Minutes", "Hours"]
         
@@ -76,7 +76,7 @@ def main():
             st.success(f"{time_value} {time_from} = {result} {time_to}")
 
     elif page == "Mass Converter":
-        st.header("⚖️ Mass Converter")
+        st.header("Mass Converter")
         mass_converter = MassConverter()
         mass_units = ["Grams", "Kilograms", "Pounds"]
         
