@@ -7,7 +7,7 @@ from config import config
 # Configure the Streamlit page
 st.set_page_config(
     page_title=config.APP_TITLE,
-    page_icon="🔒",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -57,20 +57,20 @@ with st.sidebar:
 
 # Main content
 if choice == "Home":
-    st.title("🔒 Secure Data Encryption System")
+    st.title(" Secure Data Encryption System")
     st.markdown("""
     ### Welcome to the Secure Data System
     This application provides a secure way to store and retrieve encrypted data.
     
     #### Features:
-    - 🔐 Strong encryption using Fernet
-    - 👥 User authentication
-    - ⏱️ Time-based lockouts for security
-    - 💾 Secure data storage
+    - Strong encryption using Fernet
+    - User authentication
+    - Time-based lockouts for security
+    - Secure data storage
     """)
 
 elif choice == "Login":
-    st.title("🔑 Login")
+    st.title("Login")
     with st.form("login_form"):
         username = st.text_input("Username")
         password = st.text_input("Password", type="password")
@@ -96,7 +96,7 @@ elif choice == "Login":
                 st.warning("Please fill in all fields.")
 
 elif choice == "Sign Up":
-    st.title("✍️ Sign Up")
+    st.title("Sign Up")
     with st.form("signup_form"):
         username = st.text_input("Username")
         password = st.text_input("Password", type="password")
@@ -124,7 +124,7 @@ elif choice == "Store Data":
     if not st.session_state.username:
         st.warning("Please log in first.")
     else:
-        st.title("📂 Store Data Securely")
+        st.title("Store Data Securely")
         with st.form("store_data_form"):
             data_title = st.text_input("Enter a title for your data")
             user_data = st.text_area("Enter your data")
