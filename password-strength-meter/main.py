@@ -1,28 +1,24 @@
 import re
 import streamlit as st
 
-st.set_page_config(page_title="Password Strength", page_icon="🔑")
+st.set_page_config(page_title="Password Strength", page_icon="")
 
 def calculate_strength(password):
     score = 0
     details = {}
-    # Minimum 12 characters
+   
     details['length'] = len(password) >= 12
     if details['length']:
         score += 1
-    # At least one special character
     details['special'] = bool(re.search(r"[!@#$%^&*(),.?\":{}|<>]", password))
     if details['special']:
         score += 1
-    # At least one uppercase letter
     details['uppercase'] = bool(re.search(r"[A-Z]", password))
     if details['uppercase']:
         score += 1
-    # At least one lowercase letter
     details['lowercase'] = bool(re.search(r"[a-z]", password))
     if details['lowercase']:
         score += 1
-    # At least one digit
     details['number'] = bool(re.search(r"\d", password))
     if details['number']:
         score += 1
@@ -36,16 +32,16 @@ def strength_label(score):
     else:
         return "Strong 😃"
 
-st.title("Password Strength Meter 🔒") 
+st.title("Password Strength Meter") 
 password = st.text_input("Enter your password", type="password")
 if password:
     score, details = calculate_strength(password)
     label = strength_label(score)
-    # Added code to compute percentage strength
+    
     percentage = (score / 5) * 100
     st.write("Password Strength:", label, f"({percentage:.0f}%)")
     st.progress(score / 5)
-    st.write("Criteria 🔑:")  # updated criteria heading with emoji
+    st.write("Criteria:")  
     criteria = {
         "Minimum 12 characters": details['length'],
         "At least one special character": details['special'],
